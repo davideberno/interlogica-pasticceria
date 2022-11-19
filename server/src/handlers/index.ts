@@ -5,3 +5,4 @@ export * from "./getSweetById";
 export * from "./addNewSweet";
 export * from "./changeSweet";
 export * from "./deleteSweet";
+export * from "./error";
