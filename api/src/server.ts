@@ -59,7 +59,7 @@ passport.deserializeUser((id: string, done) => {
 
 //Routes
 app.use("/auth", authRoutes);
-app.use("/api", apiRoutes);
+app.use("/", apiRoutes);
 
 //Error handler
 app.use(errorHandler);

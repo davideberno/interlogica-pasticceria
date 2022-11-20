@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-import { IIngredient } from "./";
+import { IIngredient } from ".";
 
 export interface ISweet {
   name: string;
