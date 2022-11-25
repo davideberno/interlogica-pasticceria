@@ -7,7 +7,7 @@ export const Navbar: FC = () => (
   <AppBar position="static" color="transparent" elevation={0}>
     <Toolbar>
       <img src={logo} alt="logo" width={80} />
-      <Typography variant="h4" fontWeight={600} color="primary">
+      <Typography variant="h4" fontWeight={600}>
         The Bakery
       </Typography>
     </Toolbar>

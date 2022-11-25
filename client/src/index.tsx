@@ -1,21 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Provider } from "react-redux";
+import { CssBaseline, ThemeProvider, GlobalStyles } from "@mui/material";
 
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import theme from "./theme";
+import { store } from "store";
+import { theme, globalStyles } from "styles";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <GlobalStyles styles={globalStyles} />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
