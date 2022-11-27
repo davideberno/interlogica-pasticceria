@@ -1,37 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Sweet } from "types";
+import { RootState } from "store";
+import { LoadingErrorData, Sweet } from "types";
 
-import sacherImg from "assets/sacher.jpg";
-import paradisoImg from "assets/paradiso.jpg";
-
-interface SweetsState {
-  items: Sweet[];
-}
-
-const initialState: SweetsState = {
-  items: [
-    {
-      id: "1",
-      name: "Torta Paradiso",
-      price: 14,
-      // imgUrl: paradisoImg,
-      ingredients: [],
-    },
-    {
-      id: "2",
-      name: "Torta Sacher",
-      price: 22,
-      imgUrl: sacherImg,
-      ingredients: [],
-    },
-  ],
+const initialState: LoadingErrorData<Sweet[]> = {
+  loading: false,
+  data: [],
+  error: undefined,
 };
 
-export const counterSlice = createSlice({
+export const sweetsSlice = createSlice({
   name: "sweets",
   initialState,
-  reducers: {},
+  reducers: {
+    fetchSweets: (state) => {
+      state.loading = true;
+    },
+    fetchSweetsSuccess: (state, action: PayloadAction<Sweet[]>) => {
+      state.data = action.payload;
+      state.loading = false;
+    },
+    fetchSweetsFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
+  },
 });
 
-export default counterSlice.reducer;
+//Actions
+export const { fetchSweets, fetchSweetsSuccess, fetchSweetsFailed } = sweetsSlice.actions;
+
+//Selectors
+export const selectSweetsLoading = (state: RootState) => state.sweets.loading;
+export const selectSweetsList = (state: RootState) => state.sweets.data;
+export const selectSweetsError = (state: RootState) => state.sweets.error;
+
+//Reducer
+export const sweetsReducer = sweetsSlice.reducer;

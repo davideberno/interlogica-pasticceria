@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Container } from "@mui/material";
 
 import { Navbar } from "components";
-import { Sweets } from "features";
+import { Sweets } from "features/sweets";
 
 const App: FC = () => {
   return (
