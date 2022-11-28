@@ -3,9 +3,9 @@ import { Grid, CircularProgress } from "@mui/material";
 
 import { useAppSelector, useAppDispatch } from "hooks";
 import { SweetCard } from "components";
-import { fetchSweets, selectSweetsList, selectSweetsLoading } from "./sweetsSlice";
+import { fetchSweets, selectSweetsList, selectSweetsLoading } from "../slices/sweets/sweetsSlice";
 
-export const Sweets: FC = () => {
+export const SweetsList: FC = () => {
   const dispatch = useAppDispatch();
   const sweets = useAppSelector(selectSweetsList);
   const loading = useAppSelector(selectSweetsLoading);
@@ -19,7 +19,7 @@ export const Sweets: FC = () => {
       {loading ? (
         <CircularProgress size={40} />
       ) : (
-        sweets.map((sweet) => (
+        sweets?.map((sweet) => (
           <Grid item key={sweet.id}>
             <SweetCard key={sweet.id} sweet={sweet} />
           </Grid>

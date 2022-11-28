@@ -1,7 +1,17 @@
 export interface LoadingErrorData<T> {
   loading: boolean;
-  data: T;
+  data: T | undefined;
   error: string | undefined;
+}
+
+export interface UserReq {
+  email: FormDataEntryValue;
+  password: FormDataEntryValue;
+}
+
+export interface User {
+  id: string;
+  email: string;
 }
 
 export interface Sweet {

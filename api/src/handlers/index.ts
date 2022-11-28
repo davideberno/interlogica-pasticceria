@@ -1,7 +1,9 @@
 export * from "./error";
+
 //Auth
 export * from "./login";
 export * from "./logout";
+export * from "./isAuthenticated";
 
 //Sweets
 export * from "./getAllSweets";

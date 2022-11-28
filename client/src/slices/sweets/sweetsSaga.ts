@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import { sweetsApi } from "api";
-import { fetchSweets, fetchSweetsSuccess, fetchSweetsFailed } from "./";
+import { fetchSweets, fetchSweetsSuccess, fetchSweetsFailed } from ".";
 import { Sweet } from "types";
 
 function* fetchAllSweets() {

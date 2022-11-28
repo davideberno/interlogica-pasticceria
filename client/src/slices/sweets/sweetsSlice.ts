@@ -5,7 +5,7 @@ import { LoadingErrorData, Sweet } from "types";
 
 const initialState: LoadingErrorData<Sweet[]> = {
   loading: false,
-  data: [],
+  data: undefined,
   error: undefined,
 };
 
