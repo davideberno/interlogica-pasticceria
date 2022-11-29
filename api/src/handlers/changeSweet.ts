@@ -4,8 +4,8 @@ import { Sweet } from "../models";
 
 export const changeSweet = async (req: Request, res: Response) => {
   try {
-    const { id, name, price } = req.body;
-    const sweet = await Sweet.findByIdAndUpdate(id, { name, price }, { new: true });
+    const { id, name, price, quantity } = req.body;
+    const sweet = await Sweet.findByIdAndUpdate(id, { name, price, quantity }, { new: true });
     if (!sweet) {
       res.status(404).json({ error: "Not found" });
     } else {

@@ -1,18 +1,18 @@
 import { Schema, model } from "mongoose";
 
-import { IIngredient } from ".";
+import { IIngredient, IRecipe } from ".";
 
 export interface ISweet {
-  name: string;
+  recipe: IRecipe;
   price: number;
-  ingredients: IIngredient[];
+  quantity: number;
 }
 
 const sweetSchema = new Schema<ISweet>(
   {
-    name: { type: String, required: true },
+    recipe: { type: Schema.Types.ObjectId, ref: "Recipe" },
     price: { type: Number, required: true },
-    ingredients: [{ type: Schema.Types.ObjectId, ref: "Ingredient" }],
+    quantity: { type: Number, required: true },
   },
   { timestamps: true }
 );

@@ -11,6 +11,11 @@ import {
   addNewIngredient,
   changeIngredient,
   deleteIngredient,
+  getAllRecipes,
+  getRecipeById,
+  addNewRecipe,
+  changeRecipe,
+  deleteRecipe,
 } from "../handlers";
 
 const router = express.Router();
@@ -24,6 +29,16 @@ router.post("/sweets", addNewSweet);
 router.patch("/sweets", changeSweet);
 
 router.delete("/sweets", deleteSweet);
+
+router.get("/recipes", getAllRecipes);
+
+router.get("/recipes/:id", getRecipeById);
+
+router.post("/recipes", addNewRecipe);
+
+router.patch("/recipes", changeRecipe);
+
+router.delete("/recipes", deleteRecipe);
 
 router.get("/ingredients", getAllIngredients);
 

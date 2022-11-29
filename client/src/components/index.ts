@@ -4,3 +4,5 @@ export * from "./Copyright";
 export * from "./Footer";
 export * from "./SweetsList";
 export * from "./LoginPage";
+export * from "./AdminPage";
+export * from "./ProtectedRoute";

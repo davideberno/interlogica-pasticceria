@@ -5,6 +5,13 @@ export * from "./login";
 export * from "./logout";
 export * from "./isAuthenticated";
 
+//Recipes
+export * from "./getAllRecipes";
+export * from "./getRecipeById";
+export * from "./addNewRecipe";
+export * from "./changeRecipe";
+export * from "./deleteRecipe";
+
 //Sweets
 export * from "./getAllSweets";
 export * from "./getSweetById";

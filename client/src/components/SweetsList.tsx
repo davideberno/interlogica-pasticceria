@@ -15,7 +15,7 @@ export const SweetsList: FC = () => {
   }, [dispatch]);
 
   return (
-    <Grid container spacing={4} justifyContent="center" paddingY={2}>
+    <Grid container spacing={4} padding={4}>
       {loading ? (
         <CircularProgress size={40} />
       ) : (
