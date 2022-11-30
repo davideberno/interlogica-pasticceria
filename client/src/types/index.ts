@@ -10,19 +10,35 @@ export interface UserReq {
 }
 
 export interface User {
-  id: string;
+  _id: string;
   email: string;
 }
 
-export interface Sweet {
-  id: string;
+export interface SweetReq {
   name: string;
   price: number;
   imgUrl?: string;
   ingredients: Ingredient[];
 }
 
-export interface Ingredient {
+export interface Sweet extends SweetReq {
+  _id: string;
+}
+
+export interface RecipeReq {
+  name: string;
+  ingredients: Ingredient[];
+}
+
+export interface Recipe extends RecipeReq {
+  _id: string;
+}
+
+export interface IngredientReq {
   name: string;
   unit: "g" | "ml";
+}
+
+export interface Ingredient extends IngredientReq {
+  _id: string;
 }

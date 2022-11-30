@@ -20,8 +20,8 @@ export const SweetsList: FC = () => {
         <CircularProgress size={40} />
       ) : (
         sweets?.map((sweet) => (
-          <Grid item key={sweet.id}>
-            <SweetCard key={sweet.id} sweet={sweet} />
+          <Grid item key={sweet._id}>
+            <SweetCard sweet={sweet} />
           </Grid>
         ))
       )}

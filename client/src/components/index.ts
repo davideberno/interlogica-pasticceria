@@ -6,3 +6,4 @@ export * from "./SweetsList";
 export * from "./LoginPage";
 export * from "./AdminPage";
 export * from "./ProtectedRoute";
+export * from "./NewRecipeDialog";
