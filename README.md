@@ -25,5 +25,5 @@ With Docker installed:
   http://localhost:3000/admin
 
 4. You can login with the following credentials:
-  email: luana@gmail.com password: luana
-  email: maria@gmail.com password: maria
+  - email: luana@gmail.com password: luana
+  - email: maria@gmail.com password: maria
