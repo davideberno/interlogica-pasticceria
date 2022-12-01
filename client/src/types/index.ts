@@ -1,7 +1,9 @@
-export interface LoadingErrorData<T> {
+export interface GlobalState {
   loading: boolean;
-  data: T | undefined;
   error: string | undefined;
+}
+export interface LoadingErrorData<T> extends GlobalState {
+  data: T | undefined;
 }
 
 export interface UserReq {

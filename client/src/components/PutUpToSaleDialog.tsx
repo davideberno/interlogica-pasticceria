@@ -32,6 +32,7 @@ export const PutUpToSaleDialog: FC<PutUpToSaleDialogProps> = ({ recipe, sweet, o
           price: +values.price,
         })
       );
+      onClose();
     }
   };
 
@@ -45,6 +46,7 @@ export const PutUpToSaleDialog: FC<PutUpToSaleDialogProps> = ({ recipe, sweet, o
           price: +values.price,
         })
       );
+      onClose();
     }
   };
 

@@ -56,6 +56,7 @@ export const RecipeDialog: FC<RecipeDialogProps> = ({ onClose, recipe, ...props 
         ingredients: selectedIngredients,
       })
     );
+    onClose();
   };
 
   const handleUpdateRecipe = () => {
@@ -67,6 +68,7 @@ export const RecipeDialog: FC<RecipeDialogProps> = ({ onClose, recipe, ...props 
           ingredients: selectedIngredients,
         })
       );
+      onClose();
     }
   };
 

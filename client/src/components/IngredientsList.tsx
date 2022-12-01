@@ -26,7 +26,8 @@ export const IngredientsList: FC<IngredientsListProps> = ({ gridArea }) => {
       <Box
         sx={{
           gridArea: gridArea,
-          padding: 4,
+          minHeight: "0px",
+          overflow: "hidden",
         }}
       >
         <Grid container justifyContent="space-between" marginBottom={2}>
@@ -37,9 +38,9 @@ export const IngredientsList: FC<IngredientsListProps> = ({ gridArea }) => {
           </Button>
         </Grid>
         <Divider />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, marginTop: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, height: "100%", paddingY: 2, overflowY: "auto" }}>
           {ingredientsList?.map((ingredient) => (
-            <IngredientCard ingredient={ingredient} />
+            <IngredientCard key={ingredient._id} ingredient={ingredient} />
           ))}
         </Box>
       </Box>

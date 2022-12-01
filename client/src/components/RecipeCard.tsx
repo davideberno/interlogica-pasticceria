@@ -50,7 +50,7 @@ export const RecipeCard: FC<RecipeCardProps> = ({ recipe }) => {
         <DeleteDialog open={isDialogOpen.delete} onClose={() => handleCloseDialog("delete")} label={recipe?.name} onDelete={handleDelete} />
       )}
 
-      <Card sx={{ display: "flex", justifyContent: "space-between", padding: 2 }}>
+      <Card sx={{ display: "flex", justifyContent: "space-between", padding: 2, minHeight: "100px" }}>
         <Box>
           <Typography variant="h6" marginBottom={1}>
             {recipe.name}

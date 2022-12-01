@@ -19,7 +19,7 @@ export const AdminPage: FC = () => {
   return (
     <Box
       sx={{
-        height: "calc(100% - 134px)",
+        height: "calc(100% - 142px)",
       }}
     >
       <AppBar position="static">
@@ -34,12 +34,14 @@ export const AdminPage: FC = () => {
       </AppBar>
       <Box
         sx={{
+          padding: 2,
           display: "grid",
           gridTemplateColumns: "1fr 2fr",
           gridTemplateRows: "1fr 1fr",
           gridTemplateAreas: `"recipes sweets"
                               "ingredients sweets"`,
-          height: "calc(100% - 64px)",
+          gap: 4,
+          height: "calc(100% - 40px)",
         }}
       >
         <RecipesList gridArea="recipes" />

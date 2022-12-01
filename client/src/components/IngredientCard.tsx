@@ -27,6 +27,7 @@ export const IngredientCard: FC<IngredientCardProps> = ({ ingredient }) => {
       )}
       <Card
         sx={{
+          minHeight: "60px",
           paddingX: 2,
           paddingY: 1,
           display: "flex",

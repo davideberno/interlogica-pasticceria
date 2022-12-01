@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from "react";
-import { Grid, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { useAppSelector, useAppDispatch } from "hooks";
 import { SweetCard } from "components";
-import { fetchSweets, selectSweetsList, selectSweetsLoading } from "../slices/sweets/sweetsSlice";
+import { fetchSweets, selectSweetsList } from "../slices/sweets/sweetsSlice";
 import { ListProps } from "types";
 
 export interface SweetsListProps extends ListProps {}
@@ -11,30 +11,27 @@ export interface SweetsListProps extends ListProps {}
 export const SweetsList: FC<SweetsListProps> = ({ gridArea }) => {
   const dispatch = useAppDispatch();
   const sweets = useAppSelector(selectSweetsList);
-  const loading = useAppSelector(selectSweetsLoading);
 
   useEffect(() => {
     dispatch(fetchSweets());
   }, [dispatch]);
 
   return (
-    <Grid
-      container
-      spacing={4}
+    <Box
       sx={{
         gridArea: gridArea,
-        padding: 4,
+
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        overflowY: "auto",
+        minHeight: "0px",
+        height: "100%",
       }}
     >
-      {loading ? (
-        <CircularProgress size={40} />
-      ) : (
-        sweets?.map((sweet) => (
-          <Grid item key={sweet._id} xs={12}>
-            <SweetCard sweet={sweet} />
-          </Grid>
-        ))
-      )}
-    </Grid>
+      {sweets?.map((sweet) => (
+        <SweetCard key={sweet._id} sweet={sweet} />
+      ))}
+    </Box>
   );
 };

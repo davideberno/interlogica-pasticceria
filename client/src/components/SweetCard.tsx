@@ -55,6 +55,7 @@ export const SweetCard: FC<SweetCardProps> = ({ sweet }) => {
           gridTemplateColumns: "250px auto 120px",
           width: "100%",
           minWidth: "550px",
+          minHeight: "250px",
         }}
       >
         {"" ? (
