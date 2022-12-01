@@ -15,30 +15,40 @@ export interface User {
 }
 
 export interface SweetReq {
-  name: string;
+  recipe: string;
   price: number;
-  imgUrl?: string;
-  ingredients: Ingredient[];
+  quantity: number;
 }
 
-export interface Sweet extends SweetReq {
+export interface Sweet {
   _id: string;
+  recipe: Recipe;
+  price: number;
+  quantity: number;
 }
 
 export interface RecipeReq {
   name: string;
+  ingredients: string[];
+}
+
+export interface Recipe {
+  _id: string;
+  name: string;
   ingredients: Ingredient[];
 }
 
-export interface Recipe extends RecipeReq {
-  _id: string;
-}
+export type Unit = "g" | "ml";
 
 export interface IngredientReq {
   name: string;
-  unit: "g" | "ml";
+  unit: Unit;
 }
 
 export interface Ingredient extends IngredientReq {
   _id: string;
+}
+
+export interface ListProps {
+  gridArea?: string;
 }

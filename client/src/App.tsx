@@ -8,9 +8,7 @@ const App: FC = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
+        height: "100%",
       }}
     >
       <Navbar />

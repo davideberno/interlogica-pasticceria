@@ -5,11 +5,13 @@ import { all, fork } from "redux-saga/effects";
 import { authReducer, authSaga } from "slices/auth";
 import { sweetsReducer, sweetsSaga } from "slices/sweets";
 import { ingredientsReducer, ingredientsSaga } from "slices/ingredients";
+import { recipesReducer, recipesSaga } from "slices/recipes";
 
 function* RootSaga() {
   yield all([fork(authSaga)]);
   yield all([fork(sweetsSaga)]);
   yield all([fork(ingredientsSaga)]);
+  yield all([fork(recipesSaga)]);
 }
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,6 +20,7 @@ export const store = configureStore({
     auth: authReducer,
     sweets: sweetsReducer,
     ingredients: ingredientsReducer,
+    recipes: recipesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

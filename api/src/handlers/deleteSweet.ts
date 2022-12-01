@@ -4,8 +4,8 @@ import { Sweet } from "../models";
 
 export const deleteSweet = async (req: Request, res: Response) => {
   try {
-    const { id } = req.body;
-    const sweet = await Sweet.findOneAndRemove(id);
+    const { id } = req.query;
+    const sweet = await Sweet.findByIdAndRemove(id).populate({ path: "recipe", populate: { path: "ingredients" } });
     if (!sweet) {
       res.status(404).json({ error: "Not found" });
     } else {

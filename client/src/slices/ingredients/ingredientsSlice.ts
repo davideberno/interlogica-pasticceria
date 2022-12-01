@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "store";
-import { LoadingErrorData, Ingredient } from "types";
+import { LoadingErrorData, Ingredient, IngredientReq } from "types";
 
 const initialState: LoadingErrorData<Ingredient[]> = {
   loading: false,
@@ -24,15 +24,29 @@ export const ingredientsSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    addNewIngredient: (state) => {
+    addIngredient: (state, action: PayloadAction<IngredientReq>) => {
       state.loading = true;
     },
-    addNewIngredientSuccess: (state, action: PayloadAction<Ingredient>) => {
+    addIngredientSuccess: (state, action: PayloadAction<Ingredient>) => {
       const ingredients = state?.data || [];
       state.data = [...ingredients, action.payload];
       state.loading = false;
     },
-    addNewIngredientFailed: (state, action: PayloadAction<string>) => {
+    addIngredientFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
+
+    deleteIngredient: (state, action: PayloadAction<string>) => {
+      state.loading = true;
+    },
+    deleteIngredientSuccess: (state, action: PayloadAction<Ingredient>) => {
+      const ingredients = state?.data || [];
+      const deletedIngredient = action.payload;
+      state.data = ingredients.filter((i) => i._id !== deletedIngredient._id);
+      state.loading = false;
+    },
+    deleteIngredientFailed: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = false;
     },
@@ -44,9 +58,12 @@ export const {
   fetchIngredients,
   fetchIngredientsSuccess,
   fetchIngredientsFailed,
-  addNewIngredient,
-  addNewIngredientSuccess,
-  addNewIngredientFailed,
+  addIngredient,
+  addIngredientSuccess,
+  addIngredientFailed,
+  deleteIngredient,
+  deleteIngredientSuccess,
+  deleteIngredientFailed,
 } = ingredientsSlice.actions;
 
 //Selectors

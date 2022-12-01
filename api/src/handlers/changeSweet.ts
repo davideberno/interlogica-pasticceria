@@ -5,7 +5,10 @@ import { Sweet } from "../models";
 export const changeSweet = async (req: Request, res: Response) => {
   try {
     const { id, name, price, quantity } = req.body;
-    const sweet = await Sweet.findByIdAndUpdate(id, { name, price, quantity }, { new: true });
+    const sweet = await Sweet.findByIdAndUpdate(id, { name, price, quantity }, { new: true }).populate({
+      path: "recipe",
+      populate: { path: "ingredients" },
+    });
     if (!sweet) {
       res.status(404).json({ error: "Not found" });
     } else {

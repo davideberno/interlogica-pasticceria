@@ -4,8 +4,8 @@ import { Recipe } from "../models";
 
 export const changeRecipe = async (req: Request, res: Response) => {
   try {
-    const { id, name, ingredients } = req.body;
-    const recipe = await Recipe.findByIdAndUpdate(id, { name, ingredients }, { new: true });
+    const { _id, name, ingredients } = req.body;
+    const recipe = await Recipe.findByIdAndUpdate(_id, { name, ingredients }, { new: true }).populate("ingredients");
     if (!recipe) {
       res.status(404).json({ error: "Not found" });
     } else {

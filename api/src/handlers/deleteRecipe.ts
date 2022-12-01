@@ -4,8 +4,10 @@ import { Recipe } from "../models";
 
 export const deleteRecipe = async (req: Request, res: Response) => {
   try {
-    const { id } = req.body;
-    const recipe = await Recipe.findOneAndRemove(id);
+    console.log(req.query);
+
+    const { id } = req.query;
+    const recipe = await Recipe.findByIdAndRemove(id).populate("ingredients");
     if (!recipe) {
       res.status(404).json({ error: "Not found" });
     } else {

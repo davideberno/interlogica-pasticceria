@@ -4,7 +4,7 @@ import { Ingredient } from "../models";
 
 export const deleteIngredient = async (req: Request, res: Response) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
     const ingredient = await Ingredient.findByIdAndRemove(id);
     if (!ingredient) {
       res.status(404).json({ error: "Not found" });

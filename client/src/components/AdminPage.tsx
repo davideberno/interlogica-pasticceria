@@ -1,23 +1,14 @@
-import React, { FC, useState } from "react";
-import { Box, AppBar, Toolbar, Typography, Button, Grid, Tooltip, Fab, Modal } from "@mui/material";
-import { Add } from "@mui/icons-material";
+import React, { FC } from "react";
+import { Box, AppBar, Toolbar, Typography, Button, Grid } from "@mui/material";
 
+import { SweetsList, RecipesList, IngredientsList } from "components";
 import { useAppDispatch, useAppSelector } from "hooks";
 import { selectUser, logout } from "slices/auth";
-import { SweetsList, NewRecipeDialog } from "components";
-
-export interface Modals {
-  newRecipe: boolean;
-}
 
 export const AdminPage: FC = () => {
   const dispatch = useAppDispatch();
 
   const user = useAppSelector(selectUser);
-
-  const [isModalOpen, setIsModalOpen] = useState({
-    newRecipe: false,
-  });
 
   const handleLogout = () => {
     if (user) {
@@ -25,49 +16,36 @@ export const AdminPage: FC = () => {
     }
   };
 
-  const handleOpenModal = (modal: keyof Modals) => {
-    setIsModalOpen({ ...isModalOpen, [modal]: true });
-  };
-
-  const handleCloseModal = (modal: keyof Modals) => {
-    setIsModalOpen({ ...isModalOpen, [modal]: false });
-  };
-
   return (
-    <>
-      <NewRecipeDialog open={isModalOpen.newRecipe} handleClose={() => handleCloseModal("newRecipe")} />
-      <Box>
-        <AppBar position="static">
-          <Toolbar variant="dense">
-            <Grid container alignItems="center" justifyContent="space-between">
-              <Typography>{user?.email}</Typography>
-              <Button color="inherit" onClick={handleLogout}>
-                Logout
-              </Button>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-          }}
-        >
-          <Box padding={4}>
-            <Grid container justifyContent="space-around">
-              <Typography variant="h4">Ricette</Typography>
-              <Tooltip title="Aggiungi nuova ricetta">
-                <Fab color="primary" size="small" onClick={() => handleOpenModal("newRecipe")}>
-                  <Add />
-                </Fab>
-              </Tooltip>
-            </Grid>
-          </Box>
-          <Box>
-            <SweetsList />
-          </Box>
-        </Box>
+    <Box
+      sx={{
+        height: "calc(100% - 134px)",
+      }}
+    >
+      <AppBar position="static">
+        <Toolbar variant="dense">
+          <Grid container alignItems="center" justifyContent="space-between">
+            <Typography>{user?.email}</Typography>
+            <Button color="inherit" onClick={handleLogout}>
+              Logout
+            </Button>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 2fr",
+          gridTemplateRows: "1fr 1fr",
+          gridTemplateAreas: `"recipes sweets"
+                              "ingredients sweets"`,
+          height: "calc(100% - 64px)",
+        }}
+      >
+        <RecipesList gridArea="recipes" />
+        <IngredientsList gridArea="ingredients" />
+        <SweetsList gridArea="sweets" />
       </Box>
-    </>
+    </Box>
   );
 };
