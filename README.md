@@ -1,6 +1,6 @@
 # interlogica-pasticceria
 
-To run the project docker and docker compose need to be installed.
+To run the project Docker and Docker Compose need to be installed.
 You can install Docker desktop, which includes both packages:
 
 - Mac: https://docs.docker.com/desktop/install/mac-install/
