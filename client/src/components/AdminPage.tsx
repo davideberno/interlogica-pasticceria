@@ -36,7 +36,7 @@ export const AdminPage: FC = () => {
         sx={{
           padding: 2,
           display: "grid",
-          gridTemplateColumns: "1fr 2fr",
+          gridTemplateColumns: "2fr 3fr",
           gridTemplateRows: "1fr 1fr",
           gridTemplateAreas: `"recipes sweets"
                               "ingredients sweets"`,

@@ -38,7 +38,7 @@ export const IngredientsList: FC<IngredientsListProps> = ({ gridArea }) => {
           </Button>
         </Grid>
         <Divider />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, height: "90%", paddingY: 2, overflowY: "auto" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, height: "80%", paddingY: 2, overflowY: "auto" }}>
           {ingredientsList?.map((ingredient) => (
             <IngredientCard key={ingredient._id} ingredient={ingredient} />
           ))}

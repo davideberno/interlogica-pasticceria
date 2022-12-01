@@ -31,7 +31,7 @@ const App: FC = () => {
 
   return (
     <>
-      <Snackbar open={isSnackbarOpen} message="TEXT" type="error" onClose={() => setIsSnackbarOpen(false)} />
+      <Snackbar open={isSnackbarOpen} message={error || ""} type="error" onClose={() => setIsSnackbarOpen(false)} />
       <LoadingPage open={loading} />
       <Box
         sx={{
