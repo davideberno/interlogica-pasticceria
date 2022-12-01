@@ -1,14 +1,14 @@
 import React, { FC, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 import { useAppSelector } from "hooks";
 import { selectUserLoading, selectUserError } from "slices/auth";
 import { selectIngredientsLoading, selectIngredientsError } from "slices/ingredients";
 import { selectRecipesLoading, selectRecipesError } from "slices/recipes";
 import { selectSweetsLoading, selectSweetsError } from "slices/sweets";
-
 import { Navbar, Footer, ProtectedRoute, SweetsList, AdminPage, Snackbar, LoadingPage } from "components";
+import { AppRoutes } from "types";
 
 const App: FC = () => {
   const loadingUser = useAppSelector(selectUserLoading);
@@ -40,10 +40,24 @@ const App: FC = () => {
         }}
       >
         <Navbar />
+
         <Routes>
-          <Route path="/" element={<SweetsList />} />
           <Route
-            path="/admin"
+            path={AppRoutes.Root}
+            element={
+              <Container
+                sx={{
+                  height: "calc(100% - 64px)",
+                  overflowY: "auto",
+                  paddingY: 4,
+                }}
+              >
+                <SweetsList />
+              </Container>
+            }
+          />
+          <Route
+            path={AppRoutes.Admin}
             element={
               <ProtectedRoute>
                 <AdminPage />
@@ -52,6 +66,7 @@ const App: FC = () => {
           />
           <Route path="*" element={<div>Not found</div>} />
         </Routes>
+
         <Footer />
       </Box>
     </>

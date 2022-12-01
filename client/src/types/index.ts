@@ -1,3 +1,8 @@
+export enum AppRoutes {
+  Root = "/",
+  Admin = "/admin",
+}
+
 export interface GlobalState {
   loading: boolean;
   error: string | undefined;
@@ -27,6 +32,8 @@ export interface Sweet {
   recipe: Recipe;
   price: number;
   quantity: number;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface RecipeReq {

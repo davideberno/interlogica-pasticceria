@@ -21,7 +21,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./db:/docker-entrypoint-initdb.d
 
   mongo-express:
     image: mongo-express

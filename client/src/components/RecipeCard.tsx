@@ -59,17 +59,17 @@ export const RecipeCard: FC<RecipeCardProps> = ({ recipe }) => {
         </Box>
         <CardActions>
           <Tooltip title="Modifica">
-            <IconButton color="primary" onClick={() => handleOpenDialog("edit")}>
+            <IconButton onClick={() => handleOpenDialog("edit")}>
               <Edit />
             </IconButton>
           </Tooltip>
           <Tooltip title="Elimina">
-            <IconButton color="primary" onClick={() => handleOpenDialog("delete")}>
+            <IconButton onClick={() => handleOpenDialog("delete")}>
               <Delete />
             </IconButton>
           </Tooltip>
           <Tooltip title="Metti in vendita">
-            <IconButton color="primary" onClick={() => handleOpenDialog("upToSale")}>
+            <IconButton onClick={() => handleOpenDialog("upToSale")}>
               <Forward />
             </IconButton>
           </Tooltip>

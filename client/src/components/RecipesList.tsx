@@ -53,7 +53,7 @@ export const RecipesList: FC<RecipesListProps> = ({ gridArea }) => {
           </Button>
         </Grid>
         <Divider />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, height: "100%", paddingY: 2, overflowY: "auto" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, height: "90%", paddingY: 2, overflowY: "auto" }}>
           {recipesList?.map((recipe) => (
             <RecipeCard key={recipe?._id} recipe={recipe} />
           ))}

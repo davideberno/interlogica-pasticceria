@@ -49,7 +49,7 @@ export const authSlice = createSlice({
       state.user.loading = false;
     },
     checkAuthFailed: (state, action: PayloadAction<string>) => {
-      state.user.error = action.payload;
+      // state.user.error = action.payload;
       state.user.loading = false;
     },
   },
